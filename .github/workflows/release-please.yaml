@@ -10,6 +10,4 @@ jobs:
     steps:
       - uses: google-github-actions/release-please-action@v3
         with:
-          release-type: rust
-          package-name: voice2keys
-          plugins: cargo-workspace
+          command: manifest

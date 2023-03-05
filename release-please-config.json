@@ -1,0 +1,14 @@
+{
+    "release-type": "rust",
+    "changelog-path": "CHANGELOG.md",
+    "plugins": [
+        {
+            "type": "cargo-workspace",
+            "updateAll": true
+        }
+    ],
+    "packages": {
+        "cli": {},
+        "voice2keys": {}
+    }
+}
