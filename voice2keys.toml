@@ -1,0 +1,31 @@
+[commands]
+# Basic
+Protego = "Q"
+Revelio = "R"
+"Lord of the Shore" = "Tab+1"
+Highwing = "Tab+2"
+Broom = "Tab+3"
+# Spell set 1
+Imperio = "F1+1"
+Crucio = "F1+2"
+"Avada Kedavra" = "F1+3"
+Expelliarmus = "F1+4"
+# Spell set 2
+Glacius = "F2+1"
+Bombarda = "F2+2"
+Diffindo = "F2+3"
+Confringo = "F2+4"
+# Spell set 3
+Levioso = "F3+1"
+Descendo = "F3+2"
+Incendio = "F3+3"
+Accio = "F3+4"
+# Spell set 4
+Depulso = "F4+1"
+Flipendo = "F4+2"
+"Arresto Momentum" = "F3+3"
+Transform = "F3+4"
+
+[timing]
+key_sequence_delay = "10ms"
+key_hold_duration = "20ms"
