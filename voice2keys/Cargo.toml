@@ -1,0 +1,15 @@
+[package]
+name = "voice2keys"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+anyhow = "1.0.69"
+config = "0.13.3"
+enigo = { version = "0.0.14", features = ["with_serde"] }
+keyboard-shortcut-parser = { version = "0.1.0", features = ["serde"] }
+log = "0.4.17"
+sapi-lite = "0.1.1"
+serde = { version = "1.0.152", features = ["derive"] }
+thiserror = "1.0.38"
