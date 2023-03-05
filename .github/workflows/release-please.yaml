@@ -17,7 +17,7 @@ jobs:
       # Since we use updateAll this should always include the cli release.
       - name: Checkout code
         uses: actions/checkout@v3
-        if: ${{ steps.release_please.outputs.release_created }}
+        if: ${{ steps.release_please.outputs.releases_created }}
 
       - name: Install the toolchain
         uses: actions-rs/toolchain@v1
@@ -25,14 +25,14 @@ jobs:
           toolchain: stable
           profile: minimal
           override: true
-        if: ${{ steps.release_please.outputs.release_created }}
+        if: ${{ steps.release_please.outputs.releases_created }}
 
       - name: Cargo build
         uses: actions-rs/cargo@v1
         with:
           command: build
           args: --locked --release
-        if: ${{ steps.release_please.outputs.release_created }}
+        if: ${{ steps.release_please.outputs.releases_created }}
 
       - name: Upload release asset
         uses: actions/upload-release-asset@v1
@@ -43,4 +43,4 @@ jobs:
           asset_path: target/release/cli.exe
           asset_name: voice2keys.exe
           asset_content_type: application/octet-stream
-        if: ${{ steps.release_please.outputs.release_created }}
+        if: ${{ steps.release_please.outputs.releases_created }}
