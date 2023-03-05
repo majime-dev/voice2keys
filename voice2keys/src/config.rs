@@ -9,8 +9,10 @@ use std::time;
 // Timing represents the configuration for timing between various aspects of the program.
 pub struct Timing {
     // How long to wait between key presses.
+    #[serde(with = "humantime_serde")]
     pub key_sequence_delay: time::Duration,
     // How long to wait between a key down and a key up event.
+    #[serde(with = "humantime_serde")]
     pub key_hold_duration: time::Duration,
 }
 
