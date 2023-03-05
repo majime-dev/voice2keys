@@ -1,8 +1,9 @@
+name: release-please
+
 on:
   push:
     branches:
       - main
-name: release-please
 jobs:
   release-please:
     runs-on: ubuntu-latest
@@ -11,5 +12,4 @@ jobs:
         with:
           release-type: rust
           package-name: voice2keys
-          plugins:
-            - cargo-workspace
+          plugins: cargo-workspace
