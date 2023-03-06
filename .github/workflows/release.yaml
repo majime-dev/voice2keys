@@ -1,20 +1,13 @@
-name: Build binary
+name: Build and release the binary
 on:
   push:
     branches:
       - main
 
 jobs:
-  build:
-    name: Build
-    runs-on: ${{ matrix.os.name }}-${{ matrix.os.version }}
-    strategy:
-      matrix:
-        include:
-          - os:
-              name: windows
-              version: latest
-            binary: cli.exe
+  release:
+    name: Build and release
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
         with:
@@ -31,8 +24,8 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
 
-      - name: Build ${{ matrix.os.name }} binary
-        run: cargo build -p cli --release
+      - name: Build windows binary
+        run: cargo build -p voice2keys --release
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
 
       - name: Release
@@ -41,4 +34,4 @@ jobs:
         with:
           body: ${{ steps.changelog.outputs.clean_changelog }}
           tag_name: ${{ steps.changelog.outputs.tag }}
-          files: target/release/${{ matrix.binary }}
+          files: target/release/voice2keys.exe
