@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       releases_created: ${{ steps.release-please.outputs.releases_created }}
+      tag_name: ${{ steps.release-please.outputs.tag_name }}
     steps:
       - uses: google-github-actions/release-please-action@v3
         id: release-please
@@ -26,3 +27,4 @@ jobs:
           bin: voice2keys
           include: voice2keys.toml,LICENSE,README.md
           token: ${{ secrets.GITHUB_TOKEN }}
+          ref: refs/tags/${{ needs.release-please.outputs.tag_name }}
