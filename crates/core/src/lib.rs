@@ -1,10 +1,10 @@
 #![deny(clippy::all)]
 use anyhow::{Context, Result};
-use enigo::{Enigo, KeyboardControllable};
 use sapi_lite::stt::{EventfulContext, Phrase, Recognizer, RuleArena};
 use std::io::{stdin, BufRead};
 use std::sync::Arc;
 use std::thread;
+use winput::{Action, Input};
 
 mod config;
 pub use crate::config::Config;
@@ -64,13 +64,16 @@ impl Listener {
                     }
                 };
 
-                let mut enigo = Enigo::new();
-
                 log::debug!("Sending {:?} to the active window", keys);
                 for key in keys {
-                    enigo.key_down(*key);
+                    let (press, release) = (
+                        Input::from_vk(*key, Action::Press),
+                        Input::from_vk(*key, Action::Release),
+                    );
+
+                    winput::send_inputs([press]);
                     thread::sleep(config.timing.key_hold_duration);
-                    enigo.key_up(*key);
+                    winput::send_inputs([release]);
 
                     thread::sleep(config.timing.key_sequence_delay);
                 }

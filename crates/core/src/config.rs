@@ -1,9 +1,9 @@
 use anyhow::{bail, Context, Result};
 use config::Config as ConfigRepo;
-use enigo::Key;
 use serde::Deserialize;
 use std::collections::HashMap;
 use std::time;
+use winput::Vk;
 
 #[derive(Debug, Deserialize)]
 // Timing represents the configuration for timing between various aspects of the program.
@@ -20,7 +20,7 @@ pub struct Timing {
 // Config represents a fully-formed, validated configuration.
 pub struct Config {
     // A map of voice commands to a sequence of keys to be pressed.
-    pub commands: HashMap<String, Vec<Key>>,
+    pub commands: HashMap<String, Vec<Vk>>,
     pub timing: Timing,
 }
 
@@ -75,7 +75,7 @@ impl Config {
 }
 
 // TODO: This could be extended to accept a DSL of sorts...
-fn parse_sequence(sequence: &str) -> Result<Vec<Key>> {
+fn parse_sequence(sequence: &str) -> Result<Vec<Vk>> {
     let sequence = sequence
         .split('+')
         .filter(|x| !x.is_empty())
@@ -90,45 +90,78 @@ fn parse_sequence(sequence: &str) -> Result<Vec<Key>> {
     Ok(parsed)
 }
 
-fn parse_key(key: &str) -> Result<Key> {
+fn parse_key(key: &str) -> Result<Vk> {
     let key = match key {
-        "Alt" => Key::Alt,
-        "Backspace" => Key::Backspace,
-        "CapsLock" => Key::CapsLock,
-        "Control" => Key::Control,
-        "Delete" => Key::Delete,
-        "DownArrow" => Key::DownArrow,
-        "End" => Key::End,
-        "Escape" => Key::Escape,
-        "F1" => Key::F1,
-        "F2" => Key::F2,
-        "F3" => Key::F3,
-        "F4" => Key::F4,
-        "F5" => Key::F5,
-        "F6" => Key::F6,
-        "F7" => Key::F7,
-        "F8" => Key::F8,
-        "F9" => Key::F9,
-        "F10" => Key::F10,
-        "F11" => Key::F11,
-        "F12" => Key::F12,
-        "Home" => Key::Home,
-        "LeftArrow" => Key::LeftArrow,
-        "Meta" => Key::Meta,
-        "PageDown" => Key::PageDown,
-        "PageUp" => Key::PageUp,
-        "Return" => Key::Return,
-        "RightArrow" => Key::RightArrow,
-        "Shift" => Key::Shift,
-        "Space" => Key::Space,
-        "Tab" => Key::Tab,
-        "UpArrow" => Key::UpArrow,
+        "Alt" => Vk::Alt,
+        "Backspace" => Vk::Backspace,
+        "CapsLock" => Vk::CapsLock,
+        "Control" => Vk::Control,
+        "Delete" => Vk::Delete,
+        "DownArrow" => Vk::DownArrow,
+        "End" => Vk::End,
+        "Escape" => Vk::Escape,
+        "F1" => Vk::F1,
+        "F2" => Vk::F2,
+        "F3" => Vk::F3,
+        "F4" => Vk::F4,
+        "F5" => Vk::F5,
+        "F6" => Vk::F6,
+        "F7" => Vk::F7,
+        "F8" => Vk::F8,
+        "F9" => Vk::F9,
+        "F10" => Vk::F10,
+        "F11" => Vk::F11,
+        "F12" => Vk::F12,
+        "Home" => Vk::Home,
+        "LeftArrow" => Vk::LeftArrow,
+        "Windows" => Vk::LeftWin,
+        "PageDown" => Vk::PageDown,
+        "PageUp" => Vk::PageUp,
+        "Enter" => Vk::Enter,
+        "RightArrow" => Vk::RightArrow,
+        "Shift" => Vk::Shift,
+        "Space" => Vk::Space,
+        "Tab" => Vk::Tab,
+        "UpArrow" => Vk::UpArrow,
+        "0" => Vk::_0,
+        "1" => Vk::_1,
+        "2" => Vk::_2,
+        "3" => Vk::_3,
+        "4" => Vk::_4,
+        "5" => Vk::_5,
+        "6" => Vk::_6,
+        "7" => Vk::_7,
+        "8" => Vk::_8,
+        "9" => Vk::_9,
+        "A" => Vk::A,
+        "B" => Vk::B,
+        "C" => Vk::C,
+        "D" => Vk::D,
+        "E" => Vk::E,
+        "F" => Vk::F,
+        "G" => Vk::G,
+        "H" => Vk::H,
+        "I" => Vk::I,
+        "J" => Vk::J,
+        "K" => Vk::K,
+        "L" => Vk::L,
+        "M" => Vk::M,
+        "N" => Vk::N,
+        "O" => Vk::O,
+        "P" => Vk::P,
+        "Q" => Vk::Q,
+        "R" => Vk::R,
+        "S" => Vk::S,
+        "T" => Vk::T,
+        "U" => Vk::U,
+        "V" => Vk::V,
+        "W" => Vk::W,
+        "X" => Vk::X,
+        "Y" => Vk::Y,
+        "Z" => Vk::Z,
         _ => {
-            if key.len() == 1 {
-                Key::Layout(key.chars().next().unwrap())
-            } else {
-                bail!("unknown key: {}", key);
-            }
+            // TODO: Support lowercase keys in Config
+            bail!("unknown key: {}", key);
         }
     };
 

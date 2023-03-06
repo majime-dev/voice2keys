@@ -21,10 +21,11 @@ path = "crates/voice2keys/main.rs"
 name = "voice2keys"
 
 [workspace]
-members = ["crates/core", "crates/enigo"]
+members = ["crates/core"]
 
 [dependencies]
 anyhow = "1.0.69"
 log = "0.4.17"
 simple_logger = "4.0.0"
 core = { path = "crates/core" }
+winput = "0.2.5"
