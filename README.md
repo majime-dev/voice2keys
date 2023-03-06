@@ -4,8 +4,11 @@ This is a simple Windows application that maps a given voice command to a sequen
 
 The code might not be particularly rustic, since this is is a toy project made while learning Rust.
 
-Also, there are no tests so... yeah.
-
 A sample configuration file used to augment the gameplay in Hogwarts Legacy is included in the repository root, but this can be used to automate pressing a sequence of keys in other applications.
 
-Tested on Windows 10, your mileage may vary.
+## Known limitations
+* No acoustic echo cancellation (yet!) - use headphones if the audio from your speakers gets picked up as commands
+* This is a toy project, so while it might be as good starting point for your own work, support is not guaranteed
+
+## Non-goals
+* Supporting platforms other than Windows on x86-64
