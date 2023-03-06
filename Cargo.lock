@@ -93,16 +93,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
-name = "cli"
-version = "0.1.2"
-dependencies = [
- "anyhow",
- "log",
- "simple_logger",
- "voice2keys",
-]
-
-[[package]]
 name = "colored"
 version = "2.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -140,6 +130,20 @@ dependencies = [
  "serde_json",
  "toml",
  "yaml-rust",
+]
+
+[[package]]
+name = "core"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "config",
+ "enigo",
+ "humantime-serde",
+ "log",
+ "sapi-lite",
+ "serde",
+ "thiserror",
 ]
 
 [[package]]
@@ -987,16 +991,12 @@ checksum = "49874b5167b65d7193b8aba1567f5c7d93d001cafc34600cee003eda787e483f"
 
 [[package]]
 name = "voice2keys"
-version = "0.1.2"
+version = "0.1.0"
 dependencies = [
  "anyhow",
- "config",
- "enigo",
- "humantime-serde",
+ "core",
  "log",
- "sapi-lite",
- "serde",
- "thiserror",
+ "simple_logger",
 ]
 
 [[package]]

@@ -1,11 +1,15 @@
 [package]
-name = "voice2keys"
+name = "core"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 anyhow = "1.0.69"
+config = "0.13.3"
+enigo = { path = "../enigo" }
+humantime-serde = "1.1.1"
 log = "0.4.17"
-simple_logger = "4.0.0"
-core = { path = "../core" }
+sapi-lite = "0.1.1"
+serde = { version = "1.0.152", features = ["derive"] }
+thiserror = "1.0.38"

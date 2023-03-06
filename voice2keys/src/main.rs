@@ -2,7 +2,8 @@ use std::process;
 
 use anyhow::Result;
 use simple_logger::SimpleLogger;
-use voice2keys::{Config, Listener};
+
+use core::{Config, Listener};
 
 fn main() {
     match run() {

@@ -1,2 +1,2 @@
 [workspace]
-members = ["cli", "voice2keys", "enigo"]
+members = ["core", "voice2keys", "enigo"]
