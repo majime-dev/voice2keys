@@ -24,5 +24,6 @@ Flipendo = "F4+2"
 Transform = "F4+4"
 
 [timing]
-key_sequence_delay = "10ms"
-key_hold_duration = "20ms"
+# Optional, experiment with what's right for your application.
+# key_sequence_delay = "10ms"
+# key_hold_duration = "20ms"

@@ -5,14 +5,16 @@ use std::collections::HashMap;
 use std::time;
 use winput::Vk;
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Default, Deserialize)]
 // Timing represents the configuration for timing between various aspects of the program.
 pub struct Timing {
     // How long to wait between key presses.
     #[serde(with = "humantime_serde")]
+    #[serde(default)]
     pub key_sequence_delay: time::Duration,
     // How long to wait between a key down and a key up event.
     #[serde(with = "humantime_serde")]
+    #[serde(default)]
     pub key_hold_duration: time::Duration,
 }
 
@@ -29,6 +31,7 @@ pub struct Config {
 struct RawConfig {
     // A map of voice commands to a sequence of keys to be pressed.
     pub commands: HashMap<String, String>,
+    #[serde(default)]
     pub timing: Timing,
 }
 
@@ -48,14 +51,6 @@ impl Config {
         // Let's perform the cheap checks first.
         if raw.commands.is_empty() {
             bail!("commands cannot be empty");
-        }
-
-        if raw.timing.key_hold_duration.is_zero() {
-            bail!("key_hold_duration cannot be empty");
-        }
-
-        if raw.timing.key_sequence_delay.is_zero() {
-            log::warn!("key_sequence_delay is set to 0, this is probably not what you want. No delay between keypresses will cause some programs to skip presses following the first one.");
         }
 
         let mut config = Self {

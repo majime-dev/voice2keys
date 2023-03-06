@@ -65,17 +65,24 @@ impl Listener {
                 };
 
                 log::debug!("Sending {:?} to the active window", keys);
+
                 for key in keys {
                     let (press, release) = (
                         Input::from_vk(*key, Action::Press),
                         Input::from_vk(*key, Action::Release),
                     );
 
-                    winput::send_inputs([press]);
-                    thread::sleep(config.timing.key_hold_duration);
-                    winput::send_inputs([release]);
+                    if config.timing.key_hold_duration.is_zero() {
+                        winput::send_inputs([press, release]);
+                    } else {
+                        winput::send_inputs([press]);
+                        thread::sleep(config.timing.key_hold_duration);
+                        winput::send_inputs([release]);
+                    }
 
-                    thread::sleep(config.timing.key_sequence_delay);
+                    if !config.timing.key_sequence_delay.is_zero() {
+                        thread::sleep(config.timing.key_sequence_delay);
+                    }
                 }
             }
         };
