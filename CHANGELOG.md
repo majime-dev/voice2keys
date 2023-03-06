@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.0.0](https://github.com/majime-dev/voice2keys/compare/v0.1.0...v1.0.0) (2023-03-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* replace enigo with winput
+
+### Features
+
+* add support for no delays between key presses ([54c35b1](https://github.com/majime-dev/voice2keys/commit/54c35b1f04e6db2d5815f2e3a98dbee8c1d1baf0))
+
+
+### Bug Fixes
+
+* pass on tag names to package-binary ([7cac4f3](https://github.com/majime-dev/voice2keys/commit/7cac4f3b2ccfc40c24ebf7782ce21bd5db0c6e0e))
+* replace enigo with winput ([064d475](https://github.com/majime-dev/voice2keys/commit/064d475401e68da392b303897428973f69a89546))
+
 ## 0.1.0 (2023-03-06)
 
 
