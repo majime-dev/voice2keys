@@ -2,9 +2,6 @@
 # Basic
 Protego = "Q"
 Revelio = "R"
-"Lord of the Shore" = "Tab+1"
-Highwing = "Tab+2"
-Broom = "Tab+3"
 # Spell set 1
 Imperio = "F1+1"
 Crucio = "F1+2"
@@ -23,8 +20,8 @@ Accio = "F3+4"
 # Spell set 4
 Depulso = "F4+1"
 Flipendo = "F4+2"
-"Arresto Momentum" = "F3+3"
-Transform = "F3+4"
+"Arresto Momentum" = "F4+3"
+Transform = "F4+4"
 
 [timing]
 key_sequence_delay = "10ms"
