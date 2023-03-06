@@ -6,8 +6,23 @@ on:
 jobs:
   release-please:
     runs-on: ubuntu-latest
+    outputs:
+      releases_created: ${{ steps.release-please.outputs.releases_created }}
     steps:
       - uses: google-github-actions/release-please-action@v3
+        id: release-please
         with:
           release-type: rust
           package-name: voice2keys
+
+  package-binary:
+    runs-on: windows-latest
+    needs: release-please
+    if: needs.release-please.outputs.releases_created
+    steps:
+      - uses: actions/checkout@v3
+      - uses: taiki-e/upload-rust-binary-action@v1
+        with:
+          bin: voice2keys
+          include: voice2keys.toml,LICENSE,README.md
+          token: ${{ secrets.GITHUB_TOKEN }}
