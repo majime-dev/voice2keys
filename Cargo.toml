@@ -10,6 +10,10 @@ documentation = "https://github.com/majime-dev/voice2keys"
 homepage = "https://github.com/majime-dev/voice2keys"
 repository = "https://github.com/majime-dev/voice2keys"
 license = "Apache-2.0"
+build = "build.rs"
+
+[package.metadata.winresource]
+LegalCopyright = "Copyright © majime.dev 2023"
 
 [profile.release]
 codegen-units = 1
@@ -29,3 +33,6 @@ log = "0.4.17"
 simple_logger = "4.0.0"
 core = { path = "crates/core" }
 winput = "0.2.5"
+
+[build-dependencies]
+winresource = "0.1"
