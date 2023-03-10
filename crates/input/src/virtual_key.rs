@@ -46,31 +46,57 @@ pub enum Vk {
     _8 = b'8',
     #[cfg_attr(feature = "serde", serde(rename = "9"))]
     _9 = b'9',
+    #[cfg_attr(feature = "serde", serde(alias = "a"))]
     A = b'A',
+    #[cfg_attr(feature = "serde", serde(alias = "b"))]
     B = b'B',
+    #[cfg_attr(feature = "serde", serde(alias = "c"))]
     C = b'C',
+    #[cfg_attr(feature = "serde", serde(alias = "d"))]
     D = b'D',
+    #[cfg_attr(feature = "serde", serde(alias = "e"))]
     E = b'E',
+    #[cfg_attr(feature = "serde", serde(alias = "f"))]
     F = b'F',
+    #[cfg_attr(feature = "serde", serde(alias = "g"))]
     G = b'G',
+    #[cfg_attr(feature = "serde", serde(alias = "h"))]
     H = b'H',
+    #[cfg_attr(feature = "serde", serde(alias = "i"))]
     I = b'I',
+    #[cfg_attr(feature = "serde", serde(alias = "j"))]
     J = b'J',
+    #[cfg_attr(feature = "serde", serde(alias = "k"))]
     K = b'K',
+    #[cfg_attr(feature = "serde", serde(alias = "l"))]
     L = b'L',
+    #[cfg_attr(feature = "serde", serde(alias = "m"))]
     M = b'M',
+    #[cfg_attr(feature = "serde", serde(alias = "n"))]
     N = b'N',
+    #[cfg_attr(feature = "serde", serde(alias = "o"))]
     O = b'O',
+    #[cfg_attr(feature = "serde", serde(alias = "p"))]
     P = b'P',
+    #[cfg_attr(feature = "serde", serde(alias = "q"))]
     Q = b'Q',
+    #[cfg_attr(feature = "serde", serde(alias = "r"))]
     R = b'R',
+    #[cfg_attr(feature = "serde", serde(alias = "s"))]
     S = b'S',
+    #[cfg_attr(feature = "serde", serde(alias = "t"))]
     T = b'T',
+    #[cfg_attr(feature = "serde", serde(alias = "u"))]
     U = b'U',
+    #[cfg_attr(feature = "serde", serde(alias = "v"))]
     V = b'V',
+    #[cfg_attr(feature = "serde", serde(alias = "w"))]
     W = b'W',
+    #[cfg_attr(feature = "serde", serde(alias = "x"))]
     X = b'X',
+    #[cfg_attr(feature = "serde", serde(alias = "y"))]
     Y = b'Y',
+    #[cfg_attr(feature = "serde", serde(alias = "z"))]
     Z = b'Z',
     LeftWin = 0x5b,
     RightWin = 0x5c,
