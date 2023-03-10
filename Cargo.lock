@@ -106,7 +106,7 @@ dependencies = [
 
 [[package]]
 name = "core"
-version = "1.0.0"
+version = "1.0.1"
 dependencies = [
  "anyhow",
  "config",
@@ -229,7 +229,7 @@ dependencies = [
 
 [[package]]
 name = "input"
-version = "0.1.0"
+version = "1.0.1"
 dependencies = [
  "serde",
  "winapi",
@@ -664,7 +664,7 @@ checksum = "49874b5167b65d7193b8aba1567f5c7d93d001cafc34600cee003eda787e483f"
 
 [[package]]
 name = "voice2keys"
-version = "1.0.0"
+version = "1.0.1"
 dependencies = [
  "anyhow",
  "core",
