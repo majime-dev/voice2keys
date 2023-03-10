@@ -1,6 +1,6 @@
 extern crate winresource;
 
 fn main() {
-    let res = winresource::WindowsResource::new();
-    res.compile().unwrap();
+    let mut res = winresource::WindowsResource::new();
+    res.set_icon("resources/v2k.ico").compile().unwrap();
 }
