@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: taiki-e/upload-rust-binary-action@v1
         with:
-          bin: voice2keys
+          bin: v2k
           include: voice2keys.toml,LICENSE,README.md
           token: ${{ secrets.GITHUB_TOKEN }}
           ref: refs/tags/${{ needs.release-please.outputs.tag_name }}

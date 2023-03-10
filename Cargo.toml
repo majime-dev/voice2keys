@@ -22,7 +22,7 @@ strip = true
 
 [[bin]]
 path = "crates/voice2keys/main.rs"
-name = "voice2keys"
+name = "v2k"
 
 [workspace]
 members = ["crates/core"]
