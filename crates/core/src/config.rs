@@ -1,9 +1,9 @@
 use anyhow::{bail, Context, Result};
 use config::Config as ConfigRepo;
+use input::Vk;
 use serde::Deserialize;
 use std::collections::HashMap;
 use std::time;
-use winput::Vk;
 
 #[derive(Debug, Default, Deserialize)]
 // Timing represents the configuration for timing between various aspects of the program.
