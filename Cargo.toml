@@ -25,7 +25,7 @@ path = "crates/voice2keys/main.rs"
 name = "v2k"
 
 [workspace]
-members = ["crates/core"]
+members = ["crates/core", "crates/input"]
 
 [dependencies]
 anyhow = "1.0.69"

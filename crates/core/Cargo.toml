@@ -12,4 +12,4 @@ log = "0.4.17"
 sapi-lite = "0.1.1"
 serde = { version = "1.0.152", features = ["derive"] }
 thiserror = "1.0.38"
-winput = { version = "0.2.5", default-features = false, features = ["minimal"] }
+input = { path = "../input", features = ["serde"] }
