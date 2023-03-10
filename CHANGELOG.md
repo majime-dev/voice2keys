@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/majime-dev/voice2keys/compare/v1.0.0...v1.0.1) (2023-03-10)
+
+
+### Bug Fixes
+
+* support lower-case aliases for letter keys in config ([f129b85](https://github.com/majime-dev/voice2keys/commit/f129b85b1991b9fe89eff4f8542c9703ea2351de))
+
 ## [1.0.0](https://github.com/majime-dev/voice2keys/compare/v0.1.0...v1.0.0) (2023-03-06)
 
 
