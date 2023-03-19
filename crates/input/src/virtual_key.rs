@@ -17,9 +17,13 @@ pub enum Vk {
     PageDown = 0x22,
     End = 0x23,
     Home = 0x24,
+    #[cfg_attr(feature = "serde", serde(alias = "Left"))]
     LeftArrow = 0x25,
+    #[cfg_attr(feature = "serde", serde(alias = "Up"))]
     UpArrow = 0x26,
+    #[cfg_attr(feature = "serde", serde(alias = "Right"))]
     RightArrow = 0x27,
+    #[cfg_attr(feature = "serde", serde(alias = "Down"))]
     DownArrow = 0x28,
     Select = 0x29,
     Print = 0x2a,
