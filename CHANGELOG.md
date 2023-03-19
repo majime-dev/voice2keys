@@ -1,5 +1,31 @@
 # Changelog
 
+## [2.0.0](https://github.com/majime-dev/voice2keys/compare/v1.0.1...v2.0.0) (2023-03-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* This requires changes to your config.
+    * Existing configs no longer work, since the value of the `[commands]` map is now a sequence instead of a string.
+    * The old `key1+key2` syntax to denote a sequence is no longer supported, and has been repurposed for describing a combination of keys instead (like you would expect).
+* This requries changes to your config.
+    * Remove the "key_" prefix from the setting names in the "[timing]" section.
+
+### Features
+
+* add support for key combinations ([cfde376](https://github.com/majime-dev/voice2keys/commit/cfde3764e2923d3e72db2c603d8e929fc958bf41))
+* **input:** add aliases for arrow keys ([96e578b](https://github.com/majime-dev/voice2keys/commit/96e578be65d9d0d903b9a7a0e27fc8e5b853177d))
+
+
+### Bug Fixes
+
+* give the user a chance to read the error message before the process exits ([197968d](https://github.com/majime-dev/voice2keys/commit/197968d79d98008bb32f65f9c3c97109bfec3f66))
+
+
+### Code Refactoring
+
+* strip the "key" prefix from timing ([4ef5e7a](https://github.com/majime-dev/voice2keys/commit/4ef5e7a176203176315ce57ecc94d9d236f993c3))
+
 ## [1.0.1](https://github.com/majime-dev/voice2keys/compare/v1.0.0...v1.0.1) (2023-03-10)
 
 
