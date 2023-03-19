@@ -13,3 +13,4 @@ sapi-lite = "0.1.1"
 serde = { version = "1.0.152", features = ["derive"] }
 thiserror = "1.0.38"
 input = { path = "../input", features = ["serde"] }
+terminal = { path = "../terminal" }

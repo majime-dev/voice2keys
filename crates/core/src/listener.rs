@@ -1,7 +1,6 @@
 use anyhow::{Context, Result};
 use input::{send_inputs, Event, Input};
 use sapi_lite::stt::{EventfulContext, Phrase, Recognizer, RuleArena};
-use std::io::{stdin, BufRead};
 use std::sync::Arc;
 use std::thread;
 
@@ -112,9 +111,7 @@ impl Listener {
             .set_enabled(true)
             .context("failed to enable the grammar")?;
 
-        log::info!("Listening for voice commands, press Return to stop...");
-        stdin().lock().lines().next();
-
+        terminal::pause("Listening for voice commands, press any key to exit...");
         Ok(())
     }
 }

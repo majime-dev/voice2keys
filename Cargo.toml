@@ -25,14 +25,16 @@ path = "crates/voice2keys/main.rs"
 name = "v2k"
 
 [workspace]
-members = ["crates/core", "crates/input"]
+members = ["crates/core", "crates/input", "crates/terminal"]
 
 [dependencies]
 anyhow = "1.0.69"
 log = "0.4.17"
 simple_logger = "4.0.0"
 core = { path = "crates/core" }
+terminal = { path = "crates/terminal" }
 winput = "0.2.5"
+crossterm = { version = "0.26.1", default-features = false }
 
 [build-dependencies]
 winresource = "0.1"

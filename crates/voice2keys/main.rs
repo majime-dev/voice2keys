@@ -1,15 +1,16 @@
-use std::process;
-
 use anyhow::Result;
-use simple_logger::SimpleLogger;
-
 use core::{Config, Listener};
+use simple_logger::SimpleLogger;
+use std::process;
 
 fn main() {
     match run() {
         Ok(_) => process::exit(0),
         Err(err) => {
             log::error!("{:?}", err);
+
+            // Let's give the user a chance to see the error message if they double-clicked the binary.
+            terminal::pause("Press any key to exit...");
             process::exit(1);
         }
     }
