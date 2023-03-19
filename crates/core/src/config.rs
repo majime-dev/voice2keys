@@ -11,11 +11,11 @@ pub struct Timing {
     // How long to wait between key presses.
     #[serde(with = "humantime_serde")]
     #[serde(default)]
-    pub key_sequence_delay: time::Duration,
+    pub sequence_delay: time::Duration,
     // How long to wait between a key down and a key up event.
     #[serde(with = "humantime_serde")]
     #[serde(default)]
-    pub key_hold_duration: time::Duration,
+    pub hold_duration: time::Duration,
 }
 
 #[derive(Debug, Deserialize)]

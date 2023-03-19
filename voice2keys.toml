@@ -25,5 +25,5 @@ Transform = "F4+4"
 
 [timing]
 # Optional, experiment with what's right for your application.
-# key_sequence_delay = "10ms"
-# key_hold_duration = "20ms"
+sequence_delay = "25ms"
+# hold_duration = "20ms"
