@@ -1,29 +1,14 @@
 [commands]
-# Basic
-Protego = "Q"
-Revelio = "R"
-# Spell set 1
-Imperio = "F1+1"
-Crucio = "F1+2"
-"Avada Kedavra" = "F1+3"
-Expelliarmus = "F1+4"
-# Spell set 2
-Glacius = "F2+1"
-Bombarda = "F2+2"
-Diffindo = "F2+3"
-Confringo = "F2+4"
-# Spell set 3
-Levioso = "F3+1"
-Descendo = "F3+2"
-Incendio = "F3+3"
-Accio = "F3+4"
-# Spell set 4
-Depulso = "F4+1"
-Flipendo = "F4+2"
-"Arresto Momentum" = "F4+3"
-Transform = "F4+4"
+# A command maps voice input to a sequence of key combinations.
+# A key combination is a set of keys to be pressed together, and is expressed as
+# a string of key names separated by plus signs.
+"Desktop" = ["LeftWin+D"]
+# Although entering text is not the intended use of this app, some simple strings are doable.
+"Commandline" = ["LeftWin+R", "c", "m", "d", "Enter"]
 
+# Uses human-friendly duration descriptions from the `humantime` crate.
 [timing]
-# Optional, experiment with what's right for your application.
+# How long to wait between key combinations in a sequence.
 sequence_delay = "25ms"
-# hold_duration = "20ms"
+# How long to wait between sending a keydown and a keyup event.
+hold_duration = "20ms"

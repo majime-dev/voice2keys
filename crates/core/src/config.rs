@@ -18,12 +18,15 @@ pub struct Timing {
     pub hold_duration: time::Duration,
 }
 
+pub type KeyCombination = Vec<Vk>;
+pub type KeySequence = Vec<KeyCombination>;
+
 #[derive(Debug, Deserialize)]
 // Config represents a fully-formed, validated configuration.
 pub struct Config {
     // A map of voice commands to a sequence of keys to be pressed.
-    #[serde(deserialize_with = "parse_sequence")]
-    pub commands: HashMap<String, Vec<Vk>>,
+    #[serde(deserialize_with = "parse_commands")]
+    pub commands: HashMap<String, KeySequence>,
     #[serde(default)]
     pub timing: Timing,
 }
@@ -49,18 +52,23 @@ impl Config {
     }
 }
 
-fn parse_sequence<'de, D>(deserializer: D) -> Result<HashMap<String, Vec<Vk>>, D::Error>
+fn parse_commands<'de, D>(deserializer: D) -> Result<HashMap<String, KeySequence>, D::Error>
 where
     D: Deserializer<'de>,
 {
-    let mut parsed: HashMap<String, Vec<Vk>> = Default::default();
-    let commands: HashMap<String, String> = Deserialize::deserialize(deserializer)?;
+    let mut parsed: HashMap<String, KeySequence> = Default::default();
+    let commands: HashMap<String, Vec<String>> = Deserialize::deserialize(deserializer)?;
 
     for (command, sequence) in commands {
         let sequence = sequence
-            .split('+')
-            .filter(|x| !x.is_empty())
-            .collect::<Vec<&str>>();
+            .iter()
+            .map(|combination| {
+                combination
+                    .split('+')
+                    .filter(|x| !x.is_empty())
+                    .collect::<Vec<&str>>()
+            })
+            .collect::<Vec<Vec<&str>>>();
 
         parsed.insert(
             command,

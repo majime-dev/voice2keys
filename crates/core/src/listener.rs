@@ -55,7 +55,7 @@ impl Listener {
                         return;
                     }
                 };
-                let keys = match config.commands.get(&command) {
+                let sequence = match config.commands.get(&command) {
                     Some(keys) => keys,
                     None => {
                         log::warn!("Recognition triggered for an unknown command: {}", command);
@@ -63,24 +63,30 @@ impl Listener {
                     }
                 };
 
-                log::debug!("Sending {:?} to the active window", keys);
+                log::debug!("Sending {:?} to the active window", sequence);
 
-                for key in keys {
-                    let (press, release) = (
-                        Input::new(*key, Event::KeyDown),
-                        Input::new(*key, Event::KeyUp),
-                    );
+                for combinations in sequence {
+                    let mut down_events = combinations
+                        .iter()
+                        .map(|key| Input::new(*key, Event::KeyDown))
+                        .collect::<Vec<Input>>();
 
-                    if config.timing.key_hold_duration.is_zero() {
-                        send_inputs([press, release]);
+                    let mut up_events = combinations
+                        .iter()
+                        .map(|key| Input::new(*key, Event::KeyUp))
+                        .collect::<Vec<Input>>();
+
+                    if config.timing.hold_duration.is_zero() {
+                        down_events.append(&mut up_events);
+                        send_inputs(down_events);
                     } else {
-                        send_inputs([press]);
-                        thread::sleep(config.timing.key_hold_duration);
-                        send_inputs([release]);
+                        send_inputs(down_events);
+                        thread::sleep(config.timing.hold_duration);
+                        send_inputs(up_events);
                     }
 
-                    if !config.timing.key_sequence_delay.is_zero() {
-                        thread::sleep(config.timing.key_sequence_delay);
+                    if !config.timing.sequence_delay.is_zero() {
+                        thread::sleep(config.timing.sequence_delay);
                     }
                 }
             }
